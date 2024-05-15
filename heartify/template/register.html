@@ -1,0 +1,253 @@
+{% load static %}
+<!--
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Login form</title> 
+    <link rel="stylesheet" type="text/css" href="static/heart.css">
+    <style>
+     body{
+         background:url("static/nature3.jpg") no-repeat center center/cover;
+         height:1700px;
+        }
+   </style>
+</head> 
+<body> 
+   <div class="cont">
+    <h2>Profile Form</h2>
+    <img src="static/user.png" id="im">
+    <form name="forms" method="POST" id="form">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input type="text" placeholder="Enter your first name " class="box" id="first" name="firstname"><br>
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter your last name " class="box" id="last" name="lastname"><br>
+        <label>Email Id</label>
+        <input type="email" placeholder="Enter your Email here" class="box" id="email" name="emailid"><br>
+        <label>Password</label>
+        <input type="password" placeholder="Enter your Password here" class="box" id="Pass" name="passw"><br>
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Enter your Password again" class="box" id="con" name="confpass"><br>
+        <label>Profile Picture</label>
+        <input type="file"  id="Pr" class="box" name="profile"><br>
+        <label> Address</label>
+        <textarea id="add" rows="4" cols="50"  name="address"></textarea><br>
+        <label>City</label>
+        <input type="text" placeholder="Enter your city " class="box" id="city" name="city"><br>
+        <label>State</label>
+        <input type="text" placeholder="Enter your state " class="box" id="state" name="state"><br>
+        <label>Pincode</label>
+        <input type="number" placeholder="Enter your Pincode " class="box" id="pin" name="pin"><br>
+        <select name="userType">
+          <option>Select a User</option>
+          <option  value="Doctor">Doctor</option>
+          <option value="Patient">Patient</option>
+        </select>
+
+        <div id="b"><button type="submit"  id="log"><a href="{% url "doclogin" %}">Login</a></button>
+        <button type="submit" ><a href="{% url "doclogin" %}">Sign Up</a></button></div>
+    </form>
+  </div><!--
+  <script>
+    let pass= document.getElementById("Pass");
+    let conf=document.getElementById("con");
+    let login=document.getElementById("log");
+    let form=document.getElementById( "form");
+    login.addEventListener("click",function(e){
+        e.preventDefault();
+        if(form){
+          if(pass.value != conf.value){
+            alert("Password  does not match");
+          }
+          else{
+            alert("Successfully Matched");
+            alert("Successfully Login");
+          }
+        }
+        
+
+    });
+
+  </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Signup Page</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+  background:url("static/nature3.jpg") no-repeat center center/cover;
+  height:1700px;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+form{
+     /* height: auto;
+    margin-top:60px;
+    width: 450px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px; */
+    color: #080710;
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: relative; /* Changed from absolute to relative */
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 20px 35px;
+    margin: 0 auto; /* Center the form horizontally */
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 14px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.form-control {
+    background-color: #080710;
+    color: #e5e5e5;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Signup Here</h3>
+        
+        <label for="first_name">First Name</label>
+        <input type="text" placeholder="First Name" name="first_name" id="first_name" required>
+        
+        <label for="last_name">Last Name</label>
+        <input type="text" placeholder="Last Name" name="last_name" id="last_name" required>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" name="username" id="username" required>
+    
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" name="email" id="email" required>
+    
+        <label for="address">Address</label>
+        <input type="text" placeholder="Address" name="address" id="address" required>
+    
+        <label for="city">City</label>
+        <input type="text" placeholder="City" name="city" id="city" required>
+    
+        <label for="state">State</label>
+        <input type="text" placeholder="State" name="state" id="state" required>
+    
+        <label for="pincode">Pin Code</label>
+        <input type="text" placeholder="Pin Code" name="pincode" id="pincode" required>
+    
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" id="password1" name="password1" required>
+    
+        <label for="password2">Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" id="password2" name="password2" required>
+    
+        <label for="profile_picture">Profile Picture</label>
+        <input type="file" accept="image/*" name="profile_picture" id="profile_picture" required>
+        <img id="profile-preview" src="#" alt="Preview" style="max-width: 200px; display: none;">
+        <div class="form-group">
+            <label for="userType">Register as:</label>
+            <select class="form-control" id="userType" name="userType">
+                <option value="Patient">Patient</a></option>
+                <option value="Doctor">Doctor</a></option>
+            </select>
+        </div>
+
+        <button type="submit"><a href="{% url 'doclogin' %}">Sign Up</a></button>
+        <a href="{% url 'doclogin' %}">Already have an account? Login</a>
+    </form>
+
+    
+</body>
+</html>
